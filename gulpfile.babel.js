@@ -21,8 +21,6 @@
 
 /**
  * Load WPGulp Configuration.
- *
- * TODO: Customize your project in the wpgulp.js file.
  */
 const config = require( './wpgulp.config.js' );
 
@@ -87,7 +85,15 @@ const browsersync = done => {
 		proxy: config.projectURL,
 		open: config.browserAutoOpen,
 		injectChanges: config.injectChanges,
-		watchEvents: [ 'change', 'add', 'unlink', 'addDir', 'unlinkDir' ]
+		watchEvents: [ 'change', 'add', 'unlink', 'addDir', 'unlinkDir' ],
+		port: config.localPort,
+		ui: {
+			port: config.localPort + 1
+		},
+		serveStatic: [{
+			route: '/wp-content/themes/' + config.themeName,
+			dir: '.'
+		}]
 	});
 	done();
 };
