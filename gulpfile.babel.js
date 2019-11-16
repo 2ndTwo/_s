@@ -83,8 +83,9 @@ const errorHandler = r => {
 gulp.task( 'initTheme', () => {
 	return gulp
 		.src( [
-			'**/*',
-			'!*.js'	// Exclude top-level JS files (which may be config files)
+			'./**/*',
+			'!node_modules/**/*',
+			'!./*.js'	// Exclude top-level JS files (which may be config files)
 		] )
 		.pipe( plumber( errorHandler ) )
 		.pipe( replace(
@@ -102,6 +103,7 @@ gulp.task( 'initTheme', () => {
 		.pipe( replace(
 			'_s-',
 			config.themeName.replace(' ', '-').toLowerCase() + '-' ) )
+		.pipe( gulp.dest( '.') )
 		.pipe( notify({ message: '\n\n✅  ===> THEME INITIALIZATION — completed!\n', onLast: true }) );
 });
 
