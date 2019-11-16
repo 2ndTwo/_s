@@ -29,6 +29,7 @@
     "gulp-plumber": "^1.2.0",
     "gulp-remember": "^1.0.1",
     "gulp-rename": "^1.2.0",
+    "gulp-replace": "^1.0.0",
     "gulp-rtlcss": "^1.2.0",
     "gulp-sass": "^4.0.1",
     "gulp-sort": "^2.0.0",
@@ -39,6 +40,7 @@
   },
   "scripts": {
     "start": "gulp",
+    "init": "gulp initTheme",
     "styles": "gulp styles",
     "stylesRTL": "gulp stylesRTL",
     "vendorsJS": "gulp vendorsJS",

@@ -31,6 +31,9 @@ const config = require( './wpgulp.config.js' );
  */
 const gulp = require( 'gulp' ); // Gulp of-course.
 
+// Initialization related plugins.
+const replace = require('gulp-replace');
+
 // CSS related plugins.
 const sass = require( 'gulp-sass' ); // Gulp plugin for Sass compilation.
 const minifycss = require( 'gulp-uglifycss' ); // Minifies CSS files.
@@ -73,6 +76,36 @@ const errorHandler = r => {
 };
 
 /**
+ * Task: `initTheme`.
+ *
+ * Rename things according to them
+ */
+gulp.task( 'initTheme', () => {
+	return gulp
+		.src( [
+			'**/*',
+			'!*.js'	// Exclude top-level JS files (which may be config files)
+		] )
+		.pipe( plumber( errorHandler ) )
+		.pipe( replace(
+			"'_s'",
+			"'" + config.themeName.replace(' ', '-').toLowerCase() + "'" ) )
+		.pipe( replace(
+			'_s_',
+			config.themeName.replace(' ', '_').toLowerCase() + '_' ) )
+		.pipe( replace(
+			'Text Domain: _s',
+			'Text Domain: ' + config.themeName.replace(' ', '-').toLowerCase() ) )
+		.pipe( replace(
+			' _s',
+			' ' + config.themeName.replace(' ', '_') ) )
+		.pipe( replace(
+			'_s-',
+			config.themeName.replace(' ', '-').toLowerCase() + '-' ) )
+		.pipe( notify({ message: '\n\n✅  ===> THEME INITIALIZATION — completed!\n', onLast: true }) );
+});
+
+/**
  * Task: `browser-sync`.
  *
  * Live Reloads, CSS injections, Localhost tunneling.
@@ -91,7 +124,7 @@ const browsersync = done => {
 			port: config.localPort + 1
 		},
 		serveStatic: [{
-			route: '/wp-content/themes/' + config.themeName,
+			route: '/wp-content/themes/' + config.themeDirName,
 			dir: '.'
 		}]
 	});
