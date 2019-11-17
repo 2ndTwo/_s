@@ -1,5 +1,15 @@
 {
+	"plugins": [
+		"stylelint-no-unsupported-browser-features"
+	],
 	"extends": [
+		"stylelint-a11y/recommended",
 		"stylelint-config-wordpress/scss"
-	]
+	],
+	"rules": {
+		"plugin/no-unsupported-browser-features": [true, {
+			"severity": "warning"
+		}],
+		"indentation": 2
+	}
 }
