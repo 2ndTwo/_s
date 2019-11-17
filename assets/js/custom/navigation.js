@@ -122,7 +122,7 @@ function hideSlideMenu() {
 	let body = document.body;
 	let content = document.getElementById('page');
 
-	body.classList.remove('slide-menu--active');
+	body.classList.remove('mobile-slide-menu--active');
 	console.log('Event listener: remove class');
 
 	setTimeout(function() {
