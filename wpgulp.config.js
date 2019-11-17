@@ -46,10 +46,9 @@ module.exports = {
 	watchPhp: './**/*.php', // Path to all PHP files.
 
 	// Translation options.
-	textDomain: 'WPGULP', // Your textdomain here.
-	translationFile: 'WPGULP.pot', // Name of the translation file.
+	translationFile: 'EXAMPLE.pot', // Name of the translation file.
 	translationDestination: './languages', // Where to save the translation files.
-	packageName: 'WPGULP', // Package name.
+	packageName: 'Example Name', // Package name.
 	bugReport: 'https://example.com/contact/', // Where can users report bugs.
 	lastTranslator: 'John Smith <your_email@email.com>', // Last translator Email ID.
 	team: 'JohnSmithCo <your_email@email.com>', // Team's Email ID.

@@ -372,7 +372,7 @@ gulp.task( 'translate', () => {
 		.pipe( sort() )
 		.pipe(
 			wpPot({
-				domain: config.textDomain,
+				domain: config.themeName.replace(' ', '-').toLowerCase(),
 				package: config.packageName,
 				bugReport: config.bugReport,
 				lastTranslator: config.lastTranslator,
