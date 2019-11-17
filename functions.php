@@ -153,6 +153,11 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Remove Wordpress emoji support for older browsers.
+ */
+require get_template_directory() . '/inc/remove-emojis.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
