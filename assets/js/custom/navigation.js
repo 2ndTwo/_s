@@ -109,7 +109,7 @@ function showSlideMenu() {
 	let body = document.body;
 	let content = document.getElementById('page');
 
-	body.classList.add('slide-menu--active');
+	body.classList.add('mobile-slide-menu--active');
 	setTimeout(function() {
 		content.addEventListener('click', hideSlideMenu);
 	}, 500);
