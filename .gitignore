@@ -4,7 +4,9 @@ assets/css
 assets/img
 !assets/img/raw
 assets/js/custom.js
+assets/js/custom.min.js
 assets/js/vendor.js
+assets/js/vendor.min.js
 
 
 # Created by .ignore support plugin (hsz.mobi)
