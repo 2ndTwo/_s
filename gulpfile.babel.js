@@ -168,7 +168,7 @@ gulp.task( 'styles', () => {
 		.on( 'error', sass.logError )
 		.pipe( sourcemaps.write({ includeContent: false }) )
 		.pipe( sourcemaps.init({ loadMaps: true }) )
-		.pipe( autoprefixer( config.BROWSERS_LIST ) )
+		.pipe( autoprefixer() )
 		.pipe( sourcemaps.write( './' ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
@@ -214,7 +214,7 @@ gulp.task( 'stylesRTL', () => {
 		.on( 'error', sass.logError )
 		.pipe( sourcemaps.write({ includeContent: false }) )
 		.pipe( sourcemaps.init({ loadMaps: true }) )
-		.pipe( autoprefixer( config.BROWSERS_LIST ) )
+		.pipe( autoprefixer() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( rename({ suffix: '-rtl' }) ) // Append "-rtl" to the filename.
 		.pipe( rtlcss() ) // Convert to RTL.
@@ -252,9 +252,6 @@ gulp.task( 'vendorsJS', () => {
 				presets: [
 					[
 						'@babel/preset-env', // Preset to compile your modern JS to ES5.
-						{
-							targets: { browsers: config.BROWSERS_LIST } // Target browser list to support.
-						}
 					]
 				]
 			})
@@ -295,9 +292,6 @@ gulp.task( 'customJS', () => {
 				presets: [
 					[
 						'@babel/preset-env', // Preset to compile your modern JS to ES5.
-						{
-							targets: { browsers: config.BROWSERS_LIST } // Target browser list to support.
-						}
 					]
 				]
 			})
