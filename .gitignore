@@ -1,3 +1,12 @@
+# Compiled files
+
+assets/css
+assets/img
+!assets/img/raw
+assets/js/custom.js
+assets/js/vendor.js
+
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Sass template
 .sass-cache/
