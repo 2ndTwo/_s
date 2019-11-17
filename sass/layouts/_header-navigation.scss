@@ -87,6 +87,12 @@
 
 /* Mobile Menu */
 
+@media (min-width: $layout__mobile-header-vw + 1px) {
+  .mobile-slide-menu {
+    display: none;
+  }
+}
+
 @media (max-width: $layout__mobile-header-vw) {
   .mobile-slide-menu {
     $menu-width: 300px;
