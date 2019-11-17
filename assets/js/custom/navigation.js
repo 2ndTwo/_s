@@ -104,3 +104,29 @@
 		}
 	}( container ) );
 } )();
+
+function showSlideMenu() {
+	let body = document.body;
+	let content = document.getElementById('page');
+
+	body.classList.add('slide-menu--active');
+	setTimeout(function() {
+		content.addEventListener('click', hideSlideMenu);
+	}, 500);
+	console.log('Add class and event listener');
+
+	return false;
+}
+
+function hideSlideMenu() {
+	let body = document.body;
+	let content = document.getElementById('page');
+
+	body.classList.remove('slide-menu--active');
+	console.log('Event listener: remove class');
+
+	setTimeout(function() {
+		content.removeEventListener('click', hideSlideMenu);
+	}, 500);
+	console.log('Remove class and event listener');
+}

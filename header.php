@@ -21,10 +21,25 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<div id="mobile-slide-menu" class="mobile-slide-menu">
+	<button class="fas fa-times" onclick="hideSlideMenu()"></button>
+	<?php
+	wp_nav_menu( array(
+		'theme_location' => 'menu-2',
+		'menu_id'        => 'mobile-menu',
+	) );
+	?>
+</div>
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
 
 	<header id="masthead" class="site-header">
+		<div class="mobile-header">
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+		</div>
+
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
