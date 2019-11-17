@@ -10,7 +10,7 @@
 module.exports = {
 
 	// Project options.
-	projectURL: 'wpgulp.local', // Local project URL of your already running WordPress site. Could be something like wpgulp.local or localhost:3000 depending upon your local WordPress setup.
+	projectURL: 'example.com', // Local project URL of your already running WordPress site. Could be something like wpgulp.local or localhost:3000 depending upon your local WordPress setup.
 	productURL: './', // Theme/Plugin URL. Leave it like it is, since our gulpfile.js lives in the root folder.
 	themeName: 'Awesome Theme',
 	themeDirName: 'awesome-theme',
@@ -50,7 +50,7 @@ module.exports = {
 	translationFile: 'WPGULP.pot', // Name of the translation file.
 	translationDestination: './languages', // Where to save the translation files.
 	packageName: 'WPGULP', // Package name.
-	bugReport: 'https://AhmadAwais.com/contact/', // Where can users report bugs.
-	lastTranslator: 'Ahmad Awais <your_email@email.com>', // Last translator Email ID.
-	team: 'AhmadAwais <your_email@email.com>', // Team's Email ID.
+	bugReport: 'https://example.com/contact/', // Where can users report bugs.
+	lastTranslator: 'John Smith <your_email@email.com>', // Last translator Email ID.
+	team: 'JohnSmithCo <your_email@email.com>', // Team's Email ID.
 };
