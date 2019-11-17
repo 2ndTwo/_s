@@ -23,32 +23,41 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# Normalize
-# Typography
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Content
-	## Posts and pages
-	## Comments
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
+# Abstracts
+# Vendor
+# Base
+# Components
+# Layouts
+# Pages
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# Typography
+# Abstracts
 --------------------------------------------------------------*/
-@import "typography/typography";
+@import "abstracts/index";
 
 /*--------------------------------------------------------------
-# Navigation
+# Vendor
 --------------------------------------------------------------*/
-@import "navigation/navigation";
+@import "vendor/index";
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+@import "base/index";
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+@import "components/index";
+
+/*--------------------------------------------------------------
+# Layouts
+--------------------------------------------------------------*/
+@import "layouts/index";
+
+/*--------------------------------------------------------------
+# Pages
+--------------------------------------------------------------*/
+@import "pages/index";
+
