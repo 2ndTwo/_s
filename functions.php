@@ -120,7 +120,8 @@ add_action( 'widgets_init', '_s_widgets_init' );
  * Enqueue scripts and styles.
  */
 function _s_scripts() {
-	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
+	// Change to style.css for an easier time debugging styles
+	wp_enqueue_style( '_s-style', get_template_directory_uri() . '/assets/css/style.min.css' );
 
 	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
 
