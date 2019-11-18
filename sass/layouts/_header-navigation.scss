@@ -104,6 +104,8 @@
     width: $menu-width;
     max-width: $menu-max-width;
     height: 100%;
+    color: $color__text-mobile-menu;
+    background-color: $color__background-mobile-menu;
     z-index: 100;
     transition: left 0.5s;
 
