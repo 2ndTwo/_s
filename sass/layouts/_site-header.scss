@@ -1,0 +1,8 @@
+.mobile-header {
+  position: fixed;
+  display: none;
+
+  @media (max-width: $layout__mobile-header-vw) {
+    display: block;
+  }
+}
