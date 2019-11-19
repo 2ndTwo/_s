@@ -1,6 +1,8 @@
 .mobile-header {
   position: fixed;
   display: none;
+  color: $color__text-mobile-header;
+  background-color: $color__background-mobile-header;
 
   @media (max-width: $layout__mobile-header-vw) {
     display: block;
