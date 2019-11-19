@@ -1,10 +1,19 @@
 .mobile-header {
   position: fixed;
+  top: 0;
   display: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
   color: $color__text-mobile-header;
   background-color: $color__background-mobile-header;
 
   @media (max-width: $layout__mobile-header-vw) {
     display: block;
+  }
+
+  &__site-title {
+    display: inline-block;
+    margin: 0 0 0 16px;
   }
 }
