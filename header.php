@@ -37,7 +37,7 @@
 
 	<header id="masthead" class="site-header">
 		<div class="mobile-header">
-			<button class="fas fa-bars" onclick="showSlideMenu()"></button>
+			<button class="mobile-header__button fas fa-bars" onclick="showSlideMenu()"></button>
 			<p class="mobile-header__site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 		</div>
 

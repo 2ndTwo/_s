@@ -3,8 +3,6 @@
   top: 0;
   display: none;
   width: 100%;
-  box-sizing: border-box;
-  padding: 16px;
   color: $color__text-mobile-header;
   background-color: $color__background-mobile-header;
 
@@ -14,6 +12,14 @@
 
   &__site-title {
     display: inline-block;
-    margin: 0 0 0 16px;
+    margin: 0;
+  }
+
+  &__button {
+    font-size: 20px;
+    border: 0;
+    padding: 14px;
+    margin-right: 8px;
+    background-color: transparent;
   }
 }
