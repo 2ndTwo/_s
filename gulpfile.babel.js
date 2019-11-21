@@ -90,19 +90,19 @@ gulp.task( 'initTheme', () => {
 		.pipe( plumber( errorHandler ) )
 		.pipe( replace(
 			"'_s'",
-			"'" + config.themeName.replace(' ', '-').toLowerCase() + "'" ) )
+			"'" + config.themeName.replace(/\s+/g, '-').toLowerCase() + "'" ) )
 		.pipe( replace(
 			'_s_',
-			config.themeName.replace(' ', '_').toLowerCase() + '_' ) )
+			config.themeName.replace(/\s+/g, '_').toLowerCase() + '_' ) )
 		.pipe( replace(
 			'Text Domain: _s',
-			'Text Domain: ' + config.themeName.replace(' ', '-').toLowerCase() ) )
+			'Text Domain: ' + config.themeName.replace(/\s+/g, '-').toLowerCase() ) )
 		.pipe( replace(
 			' _s',
-			' ' + config.themeName.replace(' ', '_') ) )
+			' ' + config.themeName.replace(/\s+/g, '_') ) )
 		.pipe( replace(
 			'_s-',
-			config.themeName.replace(' ', '-').toLowerCase() + '-' ) )
+			config.themeName.replace(/\s+/g, '-').toLowerCase() + '-' ) )
 		.pipe( gulp.dest( '.') )
 		.pipe( notify({ message: '\n\n✅  ===> THEME INITIALIZATION — completed!\n', onLast: true }) );
 });
