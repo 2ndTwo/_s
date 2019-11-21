@@ -122,12 +122,12 @@ add_action( 'widgets_init', '_s_widgets_init' );
  */
 function _s_scripts() {
 	// Remove .min from filename for an easier time debugging
-	wp_enqueue_style( '_s-style', get_template_directory_uri() . '/assets/css/style.min.css' );
+	wp_enqueue_style( '_s-style', get_template_directory_uri() . '/dist/css/style.min.css' );
 
 	// Remove .min from filename for an easier time debugging
-	wp_enqueue_script( '_s-custom-scripts', get_template_directory_uri() . '/assets/js/custom.min.js',
+	wp_enqueue_script( '_s-custom-scripts', get_template_directory_uri() . '/dist/js/custom.min.js',
 		array('jquery'), '', true );
-	wp_enqueue_script( '_s-vendor-scripts', get_template_directory_uri() . '/assets/js/vendor.min.js',
+	wp_enqueue_script( '_s-vendor-scripts', get_template_directory_uri() . '/dist/js/vendor.min.js',
 		array('jquery') );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
