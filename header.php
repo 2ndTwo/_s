@@ -28,6 +28,7 @@
 	wp_nav_menu( array(
 		'theme_location' => 'menu-2',
 		'menu_id'        => 'mobile-menu',
+		'item_spacing'   => 'discard',
 	) );
 	?>
 </div>
@@ -66,6 +67,7 @@
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
 				'menu_id'        => 'primary-menu',
+				'item_spacing'   => 'discard',
 			) );
 			?>
 		</nav><!-- #site-navigation -->
