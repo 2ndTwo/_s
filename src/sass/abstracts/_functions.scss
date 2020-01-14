@@ -1,0 +1,19 @@
+$browser-context: 16px; // Base font size used for em and rem calculations (must be in px)
+
+// Converts pixel values into equivalent em values
+@function em($pixels, $context: $browser-context) {
+  @if ($dev-mode) {
+    @return $pixels;
+  } @else {
+    @return ($pixels / $context) * 1em;
+  }
+}
+
+// Same as above, but for rem values
+@function rem($pixels, $context: $browser-context) {
+  @if ($dev-mode) {
+    @return $pixels;
+  } @else {
+    @return ($pixels / $context) * 1rem;
+  }
+}
