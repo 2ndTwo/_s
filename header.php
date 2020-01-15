@@ -44,7 +44,10 @@
 
 		<div class="site-branding">
 			<?php
-			the_custom_logo();
+			$customLogoId = get_theme_mod( 'custom_logo' );
+			echo wp_get_attachment_image( $customLogoId, 'full', false, array(
+			  'loading' => 'eager'
+			) );
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
