@@ -67,5 +67,10 @@
     "last 2 Edge versions",
     "last 2 Opera versions",
     "not dead"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
