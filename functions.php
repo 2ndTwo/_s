@@ -137,6 +137,11 @@ function _s_scripts() {
 add_action( 'wp_enqueue_scripts', '_s_scripts' );
 
 /**
+ * Set all images and embeds to lazy load by default
+ */
+require get_template_directory() . '/inc/lazy-loading.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
