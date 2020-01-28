@@ -30,7 +30,7 @@
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.2.0",
     "gulp-remember": "^1.0.1",
-    "gulp-rename": "^1.2.0",
+    "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-rtlcss": "^1.2.0",
     "gulp-sass": "^4.0.1",
