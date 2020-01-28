@@ -155,6 +155,7 @@ node_modules/
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/**/php.xml
 
 # Generated files
 .idea/**/contentModel.xml
