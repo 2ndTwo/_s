@@ -53,6 +53,7 @@
     position: absolute;
     top: 100%;
     width: fit-content;
+    z-index: $z-index__nav-sub-menu;
 
     ul {
       display: none;

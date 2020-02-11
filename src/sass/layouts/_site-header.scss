@@ -1,3 +1,7 @@
+.desktop-header {
+  z-index: $z-index__site-header;
+}
+
 .mobile-header {
   position: fixed;
   top: 0;
@@ -5,6 +9,7 @@
   width: 100%;
   color: $color__text-mobile-header;
   background-color: $color__background-mobile-header;
+  z-index: $z-index__site-header;
 
   @media (max-width: $layout__mobile-header-vw) {
     display: block;
