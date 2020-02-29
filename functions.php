@@ -172,3 +172,8 @@ require get_template_directory() . '/inc/remove-emojis.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Load block editor (Gutenberg) configuration file
+ */
+require get_template_directory() . '/inc/block-editor.php';
