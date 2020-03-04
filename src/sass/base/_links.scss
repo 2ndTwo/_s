@@ -1,3 +1,12 @@
+html {
+  // This makes it easier for a user to tell where they moved to on the page
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
 a {
   color: $color__link;
 
