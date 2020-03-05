@@ -105,28 +105,17 @@
 	}( container ) );
 } )();
 
-function showSlideMenu() {
+( function() {
 	let body = document.body;
-	let content = document.getElementById('page');
+	let openButton = document.getElementById( 'slide-menu-button-open' );
+	let closeButton = document.getElementById( 'slide-menu-button-close' );
 
-	body.classList.add('mobile-slide-menu--active');
-	setTimeout(function() {
-		content.addEventListener('click', hideSlideMenu);
-	}, 500);
-	console.log('Add class and event listener');
+	openButton.onclick = function() {
+		body.classList.add( 'mobile-slide-menu--active' );
+	};
 
-	return false;
-}
+	closeButton.onclick = function() {
+		body.classList.remove( 'mobile-slide-menu--active' );
+	};
 
-function hideSlideMenu() {
-	let body = document.body;
-	let content = document.getElementById('page');
-
-	body.classList.remove('mobile-slide-menu--active');
-	console.log('Event listener: remove class');
-
-	setTimeout(function() {
-		content.removeEventListener('click', hideSlideMenu);
-	}, 500);
-	console.log('Remove class and event listener');
-}
+}() );

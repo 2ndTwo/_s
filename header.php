@@ -23,7 +23,7 @@
 <body <?php body_class(); ?>>
 
 <div id="mobile-slide-menu" class="mobile-slide-menu">
-	<button class="fas fa-times" onclick="hideSlideMenu()"></button>
+	<button id="slide-menu-button-close" class="fas fa-times"></button>
 	<?php
 	wp_nav_menu( array(
 		'theme_location' => 'menu-2',
@@ -38,7 +38,7 @@
 
 	<header id="masthead" class="site-header">
 		<div class="mobile-header">
-			<button class="mobile-header__button fas fa-bars" onclick="showSlideMenu()"></button>
+			<button id="slide-menu-button-open" class="mobile-header__button fas fa-bars"></button>
 			<p class="mobile-header__site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 		</div>
 
