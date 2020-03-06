@@ -28,7 +28,7 @@
 	<!-- Check up to 8 files simultanously. -->
 	<arg name="parallel" value="8"/>
 
-	<!-- Only check the PHP, CSS and SCSS files. JS files are checked separately with JSCS and ESLint. -->
+	<!-- Only check the PHP, CSS and SCSS files. JS files are checked separately with ESLint. -->
 	<arg name="extensions" value="php,css,scss/css"/>
 
 	<!-- Check all files in this directory and the directories below it. -->
