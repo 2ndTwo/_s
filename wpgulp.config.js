@@ -19,7 +19,7 @@ module.exports = {
 	localPort: 3000,
 
 	// Style options.
-	styleSRC: './src/sass/style.scss', // Path to main .scss file.
+	styleSRC: './src/sass/*.scss', // Path to main .scss file.
 	styleDestination: './dist/css/', // Path to place the compiled CSS file. Default set to root folder.
 	outputStyle: 'expanded', // Available options → 'compact' or 'compressed' or 'nested' or 'expanded'
 	errLogToConsole: true,

@@ -94,19 +94,27 @@ function _s_setup_block_editor() {
 
 
 	/*
-	 * Add support for wide and full block alignments
-	 *
-	 * @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#wide-alignment
-	 */
-	// add_theme_support( 'align-wide' );
-
-
-	/*
 	 * Add default block styling
 	 *
 	 * @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#default-block-styles
 	 */
 	add_theme_support( 'wp-block-styles' );
+
+	/*
+	 * Add support for custom block editor styles
+	 *
+	 * @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#editor-styles
+	 */
+	add_theme_support( 'editor-styles' );
+	add_editor_style( 'dist/css/editor-style.css' );
+
+
+	/*
+	 * Add support for wide and full block alignments
+	 *
+	 * @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#wide-alignment
+	 */
+	// add_theme_support( 'align-wide' );
 
 
 	/*

@@ -2,7 +2,6 @@
 
 $dev-mode: true;   // TODO: Set to false when using in a live site
 
-
 // Colors //
 
 // General Colors
@@ -65,3 +64,8 @@ $font__pre: "Courier 10 Pitch", courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;
 
+
+// Defaults //
+// Do not change any of these variables
+
+$is-editor-stylesheet: false !default;
