@@ -3,4 +3,12 @@ img {
   width: auto;
   max-height: 80vh;
   height: auto;
+
+  @media (inverted-colors: inverted) {
+    // Make sure images and videos show up correctly
+    img,
+    video {
+      filter: invert();
+    }
+  }
 }
