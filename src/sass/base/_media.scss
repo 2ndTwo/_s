@@ -1,14 +1,20 @@
 img {
-  max-width: 100%;
   width: auto;
   max-height: 80vh;
   height: auto;
+}
 
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+img,
+video {
   @media (inverted-colors: inverted) {
-    // Make sure images and videos show up correctly
-    img,
-    video {
-      filter: invert();
-    }
+    // Make sure images, videos, and iframes show up correctly
+    filter: invert(1);
   }
 }
+
