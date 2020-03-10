@@ -13,7 +13,8 @@
 		"indentation": 2,
 	  	"at-rule-empty-line-before": ["always", {
 		  "ignoreAtRules": ["use", "forward", "import", "mixin", "include", "function", "extend", "return", "at-root",
-			"error", "warn", "debug", "if", "else", "each", "for", "while"]
+			"error", "warn", "debug", "if", "else", "each", "for", "while"],
+		  "except": ["first-nested"]
 		}]
 	}
 }
