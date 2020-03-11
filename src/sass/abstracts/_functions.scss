@@ -17,3 +17,14 @@ $browser-context: 16px; // Base font size used for em and rem calculations (must
     @return ($pixels / $context) * 1rem;
   }
 }
+
+
+@mixin vfont-weight($font-weight, $fallback-weight: null) {
+  $fallback-weight: if($fallback-weight, $fallback-weight, round($font-weight / 100) * 100);
+
+  font-weight: $fallback-weight;
+
+  @supports (font-variation-settings: "wght" $font-weight) {
+    font-weight: $font-weight;
+  }
+}
