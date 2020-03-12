@@ -37,8 +37,8 @@ const replace = require('gulp-replace');
 // CSS related plugins.
 const sass = require( 'gulp-sass' ); // Gulp plugin for Sass compilation.
 const minifycss = require( 'gulp-csso' ); // Minifies CSS files.
+const postcss = require( 'gulp-postcss' ); // Autoprefixing magic.
 const autoprefixer = require( 'gulp-autoprefixer' ); // Autoprefixing magic.
-const mmq = require( 'gulp-merge-media-queries' ); // Combine matching media queries into one.
 const rtlcss = require( 'gulp-rtlcss' ); // Generates RTL stylesheet.
 
 // JS related plugins.
@@ -171,7 +171,7 @@ gulp.task( 'styles', () => {
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
-		.pipe( mmq({ log: true }) ) // Merge Media Queries only for .min.css version.
+		.pipe( postcss([ require( 'postcss-combine-media-query' ) ]) )
 		.pipe( browserSync.stream() ) // Reloads style.css if that is enqueued.
 		.pipe( rename({ suffix: '.min' }) )
 		.pipe( minifycss() )
@@ -218,7 +218,7 @@ gulp.task( 'stylesRTL', () => {
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
 		.pipe( browserSync.stream() ) // Reloads style.css or style-rtl.css, if that is enqueued.
-		.pipe( mmq({ log: true }) ) // Merge Media Queries only for .min.css version.
+		.pipe( postcss([ require( 'postcss-combine-media-query' ) ]) )
 		.pipe( rename({ suffix: '.min' }) )
 		.pipe( minifycss() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
