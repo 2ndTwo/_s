@@ -167,11 +167,11 @@ gulp.task( 'styles', () => {
 		)
 		.on( 'error', sass.logError )
 		.pipe( autoprefixer() )
+		.pipe( postcss([ require( 'postcss-combine-media-query' ) ]) )
 		.pipe( sourcemaps.write( './' ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
-		.pipe( postcss([ require( 'postcss-combine-media-query' ) ]) )
 		.pipe( browserSync.stream() ) // Reloads style.css if that is enqueued.
 		.pipe( rename({ suffix: '.min' }) )
 		.pipe( minifycss() )
@@ -214,11 +214,11 @@ gulp.task( 'stylesRTL', () => {
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( rename({ suffix: '-rtl' }) ) // Append "-rtl" to the filename.
 		.pipe( rtlcss() ) // Convert to RTL.
+		.pipe( postcss([ require( 'postcss-combine-media-query' ) ]) )
 		.pipe( sourcemaps.write( './' ) ) // Output sourcemap for style-rtl.css.
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
 		.pipe( browserSync.stream() ) // Reloads style.css or style-rtl.css, if that is enqueued.
-		.pipe( postcss([ require( 'postcss-combine-media-query' ) ]) )
 		.pipe( rename({ suffix: '.min' }) )
 		.pipe( minifycss() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
