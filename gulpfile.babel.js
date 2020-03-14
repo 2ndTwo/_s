@@ -32,7 +32,7 @@ const config = require( './wpgulp.config.js' );
 const gulp = require( 'gulp' ); // Gulp of-course.
 
 // Initialization related plugins.
-const replace = require('gulp-replace');
+const replace = require( 'gulp-replace' );
 
 // CSS related plugins.
 const sass = require( 'gulp-sass' ); // Gulp plugin for Sass compilation.
@@ -82,28 +82,28 @@ const errorHandler = r => {
  */
 gulp.task( 'initTheme', () => {
 	return gulp
-		.src( [
+		.src([
 			'./**/*',
 			'!node_modules/**/*',
 			'!./*.js'	// Exclude top-level JS files (which may be config files)
-		] )
+		])
 		.pipe( plumber( errorHandler ) )
 		.pipe( replace(
-			"'_s'",
-			"'" + config.themeName.replace(/\s+/g, '-').toLowerCase() + "'" ) )
+			'\'_s\'',
+			'\'' + config.themeName.replace( /\s+/g, '-' ).toLowerCase() + '\'' ) )
 		.pipe( replace(
 			'_s_',
-			config.themeName.replace(/\s+/g, '_').toLowerCase() + '_' ) )
+			config.themeName.replace( /\s+/g, '_' ).toLowerCase() + '_' ) )
 		.pipe( replace(
 			'Text Domain: _s',
-			'Text Domain: ' + config.themeName.replace(/\s+/g, '-').toLowerCase() ) )
+			'Text Domain: ' + config.themeName.replace( /\s+/g, '-' ).toLowerCase() ) )
 		.pipe( replace(
 			' _s',
-			' ' + config.themeName.replace(/\s+/g, '_') ) )
+			' ' + config.themeName.replace( /\s+/g, '_' ) ) )
 		.pipe( replace(
 			'_s-',
-			config.themeName.replace(/\s+/g, '-').toLowerCase() + '-' ) )
-		.pipe( gulp.dest( '.') )
+			config.themeName.replace( /\s+/g, '-' ).toLowerCase() + '-' ) )
+		.pipe( gulp.dest( '.' ) )
 		.pipe( notify({ message: '\n\n✅  ===> THEME INITIALIZATION — completed!\n', onLast: true }) );
 });
 
@@ -125,10 +125,10 @@ const browsersync = done => {
 		ui: {
 			port: config.localPort + 1
 		},
-		serveStatic: [{
+		serveStatic: [ {
 			route: '/wp-content/themes/' + config.themeDirName,
 			dir: '.'
-		}]
+		} ]
 	});
 	done();
 };
@@ -247,7 +247,7 @@ gulp.task( 'vendorsJS', () => {
 			babel({
 				presets: [
 					[
-						'@babel/preset-env', // Preset to compile your modern JS to ES5.
+						'@babel/preset-env' // Preset to compile your modern JS to ES5.
 					]
 				]
 			})
@@ -287,7 +287,7 @@ gulp.task( 'customJS', () => {
 			babel({
 				presets: [
 					[
-						'@babel/preset-env', // Preset to compile your modern JS to ES5.
+						'@babel/preset-env' // Preset to compile your modern JS to ES5.
 					]
 				]
 			})
@@ -368,7 +368,7 @@ gulp.task( 'translate', () => {
 		.pipe( sort() )
 		.pipe(
 			wpPot({
-				domain: config.themeName.replace(' ', '-').toLowerCase(),
+				domain: config.themeName.replace( ' ', '-' ).toLowerCase(),
 				package: config.packageName,
 				bugReport: config.bugReport,
 				lastTranslator: config.lastTranslator,
