@@ -38,7 +38,7 @@ const replace = require( 'gulp-replace' );
 const sass = require( 'gulp-sass' ); // Gulp plugin for Sass compilation.
 const minifycss = require( 'gulp-csso' ); // Minifies CSS files.
 const postcss = require( 'gulp-postcss' ); // Autoprefixing magic.
-const autoprefixer = require( 'gulp-autoprefixer' ); // Autoprefixing magic.
+const autoprefixer = require( 'autoprefixer' ); // Autoprefixing magic.
 const rtlcss = require( 'gulp-rtlcss' ); // Generates RTL stylesheet.
 
 // JS related plugins.
@@ -166,8 +166,7 @@ gulp.task( 'styles', () => {
 			})
 		)
 		.on( 'error', sass.logError )
-		.pipe( autoprefixer() )
-		.pipe( postcss([ require( 'postcss-combine-media-query' ) ]) )
+		.pipe( postcss([ autoprefixer(), require( 'postcss-combine-media-query' ) ]) )
 		.pipe( sourcemaps.write( './' ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
@@ -210,11 +209,10 @@ gulp.task( 'stylesRTL', () => {
 			})
 		)
 		.on( 'error', sass.logError )
-		.pipe( autoprefixer() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( rename({ suffix: '-rtl' }) ) // Append "-rtl" to the filename.
 		.pipe( rtlcss() ) // Convert to RTL.
-		.pipe( postcss([ require( 'postcss-combine-media-query' ) ]) )
+		.pipe( postcss([ autoprefixer(), require( 'postcss-combine-media-query' ) ]) )
 		.pipe( sourcemaps.write( './' ) ) // Output sourcemap for style-rtl.css.
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
