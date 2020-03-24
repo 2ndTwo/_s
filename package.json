@@ -10,8 +10,8 @@
   "license": "GPL-2.0+",
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "@babel/register": "^7.8.6",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/register": "^7.9.0",
     "autoprefixer": "^9.7.5",
     "beepbeep": "^1.2.2",
     "browser-sync": "^2.11.1",
