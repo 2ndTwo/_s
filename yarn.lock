@@ -3859,7 +3859,7 @@ glob@7.1.4:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@~7.1.1:
+glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.6, glob@~7.1.1:
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
   integrity sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
@@ -4263,15 +4263,15 @@ gulp-uglify@^3.0.0:
     uglify-js "^3.0.5"
     vinyl-sourcemaps-apply "^0.2.0"
 
-gulp-wp-pot@^2.3.6:
-  version "2.3.6"
-  resolved "https://registry.yarnpkg.com/gulp-wp-pot/-/gulp-wp-pot-2.3.6.tgz#01f47f309abcf547240bcc6714d389640e447d89"
-  integrity sha512-RaS7MiT8w9HdfmH8c6l7QKeeZeWDMDoyWUb//vFXGH05XY1t2w4iv22k0AIWyZ9w2ceX6W2ia3jC5hH+5wn2rA==
+gulp-wp-pot@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/gulp-wp-pot/-/gulp-wp-pot-2.4.1.tgz#3b3d63e657332eb15e1793e927354055acaa478d"
+  integrity sha512-/sYqx9QQ1+A40XCS6yLTIrJuptQI3cCKd2z3AGhH/aox21u0M1EV/D8Nhzcdcyd84fsE9AkIGRiIyWx+IbZ9iw==
   dependencies:
     plugin-error "^1.0.1"
     through2 "^3.0.1"
     vinyl "^2.2.0"
-    wp-pot "^1.7.1"
+    wp-pot "^1.9.1"
 
 gulp@^4.0.0:
   version "4.0.2"
@@ -5641,13 +5641,13 @@ matchdep@^2.0.0:
     resolve "^1.4.0"
     stack-trace "0.0.10"
 
-matched@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/matched/-/matched-4.0.0.tgz#826f35f6751ec9fc7e655fd12e8c672bde9ee79b"
-  integrity sha512-mD08ireECeLL/CCgum8EeLx/SZiAmhbbt4FPlCZ4GG2xKBJ/yB8qn0uvuvouQzCORknElll2jSNVdtCWNQdR2g==
+matched@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/matched/-/matched-5.0.0.tgz#4b10735a89f87b6f9bf457136472631e19df05d7"
+  integrity sha512-O0LCuxYYBNBjP2dmAg0i6PME0Mb0dvjulpMC0tTIeMRh6kXYsugOT5GOWpFkSzqjQjgOUs/eiyvpVhXdN2La4g==
   dependencies:
-    glob "^7.1.3"
-    picomatch "^2.0.5"
+    glob "^7.1.6"
+    picomatch "^2.2.1"
 
 mathml-tag-names@^2.1.1:
   version "2.1.1"
@@ -6670,15 +6670,20 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-php-parser@^3.0.0-prerelease.9:
-  version "3.0.0-prerelease.9"
-  resolved "https://registry.yarnpkg.com/php-parser/-/php-parser-3.0.0-prerelease.9.tgz#d04cc65c793a5bce4883460cdc1b43b0d19a3058"
-  integrity sha512-QTVGKeiGZyRq7NpXMx15Dkiq9+B2KLGStck1Wrik+Hui+vb70rDBF+dY1RD6/IC8Wy/tUAhcKiCfKWVJUjymDA==
+php-parser@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/php-parser/-/php-parser-3.0.0.tgz#7e0abef4941cabbf10f25f1445bca0f758f5102f"
+  integrity sha512-WqGNf8Y5LBOXKJz9eKMwxjqfJ7KnwVU7DH3ebPTaOLlPtVrig++zG8KoOXywY9V9jQxY+wOY0EtC/e+wamaxsQ==
 
 picomatch@^2.0.5:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.1.1.tgz#ecdfbea7704adb5fe6fb47f9866c4c0e15e905c5"
   integrity sha512-OYMyqkKzK7blWO/+XZYP6w8hH0LDvkBvdvKukti+7kqYFCiEAk+gI3DWnryapc0Dau05ugGTy0foQ6mqn4AHYA==
+
+picomatch@^2.2.1:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
+  integrity sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==
 
 pify@^2.0.0, pify@^2.2.0, pify@^2.3.0:
   version "2.3.0"
@@ -9183,14 +9188,14 @@ word-wrap@^1.0.3, word-wrap@~1.2.3:
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
   integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
 
-wp-pot@^1.7.1:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/wp-pot/-/wp-pot-1.8.0.tgz#e1823f80aed933cef65026f0198668ae3a4d86db"
-  integrity sha512-/mAX/emTaZ8IByXLVWHILzP6Epm22kk09S5vaUD20xpirqV6EzTF4Cn5JPivcbanczo6Bb98JR6B/mL8EHHQMA==
+wp-pot@^1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/wp-pot/-/wp-pot-1.9.1.tgz#60a37d0f808cc4f0aa96834180b5638d005074a4"
+  integrity sha512-wnD2gP7tB2uiz49ebje8EKStYweq/ueMKDm6My1BlUSjRBzdV4hIiIOA/J9M/O6naqp8yfksxi/RbpMU3upJvw==
   dependencies:
-    matched "^4.0.0"
+    matched "^5.0.0"
     path-sort "^0.1.0"
-    php-parser "^3.0.0-prerelease.9"
+    php-parser "^3.0.0"
 
 wrap-ansi@^2.0.0:
   version "2.1.0"
