@@ -8317,10 +8317,10 @@ stylelint-a11y@^1.2.3:
   resolved "https://registry.yarnpkg.com/stylelint-a11y/-/stylelint-a11y-1.2.3.tgz#e8db461fd493cdb9106da0c8040e0576ef96b8fd"
   integrity sha512-S/iiKFUsYBfa4suxP0pYQqoPB9R1+SnvxVuzHHlz9al0IWxLZzXlnZEqEez0zNOhVh5iO3rATUmDnbZE5wm/pQ==
 
-stylelint-config-recommended-scss@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-recommended-scss/-/stylelint-config-recommended-scss-4.1.0.tgz#ff8f72f187833915640f8ab05fc57692c76a4bf5"
-  integrity sha512-4012ca0weVi92epm3RRBRZcRJIyl5vJjJ/tJAKng+Qat5+cnmuCwyOI2vXkKdjNfGd0gvzyKCKEkvTMDcbtd7Q==
+stylelint-config-recommended-scss@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-recommended-scss/-/stylelint-config-recommended-scss-4.2.0.tgz#3ad3fc858215cfd16a0f90aecf1ac0ea8a3e6971"
+  integrity sha512-4bI5BYbabo/GCQ6LbRZx/ZlVkK65a1jivNNsD+ix/Lw0U3iAch+jQcvliGnnAX8SUPaZ0UqzNVNNAF3urswa7g==
   dependencies:
     stylelint-config-recommended "^3.0.0"
 
@@ -8329,14 +8329,14 @@ stylelint-config-recommended@^3.0.0:
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-3.0.0.tgz#e0e547434016c5539fe2650afd58049a2fd1d657"
   integrity sha512-F6yTRuc06xr1h5Qw/ykb2LuFynJ2IxkKfCMf+1xqPffkxh0S09Zc902XCffcsw/XMFq/OzQ1w54fLIDtmRNHnQ==
 
-stylelint-config-wordpress@^16.0.0:
-  version "16.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-wordpress/-/stylelint-config-wordpress-16.0.0.tgz#65229406adedfc887708af16073697e987c7e5a4"
-  integrity sha512-fu8F2a3DTHjo7Id4rUbua2FprieKBDQ+jQ67XVBMsys8YyBjOd/CdcCRiWQug4sA1/A41lq0JlD2gOlR0dWmpw==
+stylelint-config-wordpress@^17.0.0:
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-wordpress/-/stylelint-config-wordpress-17.0.0.tgz#26014da588b8e8f60e11af841ee16ec28490ae97"
+  integrity sha512-qUU2kVMd2ezIV9AzRdgietIfnavRRENt4180A1OMoVXIowRjjhohZgBiyVPV5EtNKo3GTO63l8g/QGNG27/h9g==
   dependencies:
     stylelint-config-recommended "^3.0.0"
-    stylelint-config-recommended-scss "^4.1.0"
-    stylelint-scss "^3.13.0"
+    stylelint-config-recommended-scss "^4.2.0"
+    stylelint-scss "^3.17.2"
 
 stylelint-no-unsupported-browser-features@^4.0.0:
   version "4.0.0"
@@ -8347,7 +8347,7 @@ stylelint-no-unsupported-browser-features@^4.0.0:
     lodash "^4.17.15"
     postcss "^7.0.21"
 
-stylelint-scss@^3.13.0, stylelint-scss@^3.17.2:
+stylelint-scss@^3.17.2:
   version "3.17.2"
   resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.17.2.tgz#4d849a153f9241834396f5880db2c3c964def4e3"
   integrity sha512-e0dmxqsofy/HZj4urcGSJw4S6yHDJxiQdT20/1ciCsd5lomisa7YM4+Qtt1EG4hsqEG1dbEeF855tec1UyqcSA==
