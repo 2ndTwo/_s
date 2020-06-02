@@ -4289,15 +4289,15 @@ gulp-uglify@^3.0.0:
     uglify-js "^3.0.5"
     vinyl-sourcemaps-apply "^0.2.0"
 
-gulp-wp-pot@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/gulp-wp-pot/-/gulp-wp-pot-2.4.1.tgz#3b3d63e657332eb15e1793e927354055acaa478d"
-  integrity sha512-/sYqx9QQ1+A40XCS6yLTIrJuptQI3cCKd2z3AGhH/aox21u0M1EV/D8Nhzcdcyd84fsE9AkIGRiIyWx+IbZ9iw==
+gulp-wp-pot@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/gulp-wp-pot/-/gulp-wp-pot-2.4.3.tgz#371640b5c98a538222aa8a6ca0dbd11e2802a676"
+  integrity sha512-1vbftC7VPZVxbsSYdJrnFkYj+ic858uitVAsu6vYd3mZ/5cxjq6lpVOkLAf3ZOQlwE5gxkqbwcIhyORLvlEhEQ==
   dependencies:
     plugin-error "^1.0.1"
     through2 "^3.0.1"
     vinyl "^2.2.0"
-    wp-pot "^1.9.1"
+    wp-pot "^1.9.3"
 
 gulp@^4.0.0:
   version "4.0.2"
@@ -6691,10 +6691,10 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-php-parser@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/php-parser/-/php-parser-3.0.0.tgz#7e0abef4941cabbf10f25f1445bca0f758f5102f"
-  integrity sha512-WqGNf8Y5LBOXKJz9eKMwxjqfJ7KnwVU7DH3ebPTaOLlPtVrig++zG8KoOXywY9V9jQxY+wOY0EtC/e+wamaxsQ==
+php-parser@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/php-parser/-/php-parser-3.0.1.tgz#69ae957362717cfefbc58eb208d12e48dab2e809"
+  integrity sha512-m6CBPHOoMkzEHoXG0rhEg/VegSNemUNQepHnYtrRgTAh8rsqoO65KqQ32KJ5xe2iplhO0jdwd1UJ9Ea0yHsgYQ==
 
 picomatch@^2.0.5:
   version "2.1.1"
@@ -9209,14 +9209,14 @@ word-wrap@^1.0.3, word-wrap@~1.2.3:
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
   integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
 
-wp-pot@^1.9.1:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/wp-pot/-/wp-pot-1.9.1.tgz#60a37d0f808cc4f0aa96834180b5638d005074a4"
-  integrity sha512-wnD2gP7tB2uiz49ebje8EKStYweq/ueMKDm6My1BlUSjRBzdV4hIiIOA/J9M/O6naqp8yfksxi/RbpMU3upJvw==
+wp-pot@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/wp-pot/-/wp-pot-1.9.3.tgz#3bd360086d8cb30015e0f42558705da093ac6bcd"
+  integrity sha512-PvWxTZpG9geOyon68wFPCk70D0pYrUxafRSEtB8gYoDnPKf86Tar9PnzS9x/IX62UGNKtT4zDFFIyQU1L9wyLA==
   dependencies:
     matched "^5.0.0"
     path-sort "^0.1.0"
-    php-parser "^3.0.0"
+    php-parser "^3.0.1"
 
 wrap-ansi@^2.0.0:
   version "2.1.0"
