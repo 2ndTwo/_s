@@ -11,7 +11,7 @@
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
-    "@babel/register": "^7.10.1",
+    "@babel/register": "^7.10.3",
     "autoprefixer": "^9.8.0",
     "beepbeep": "^1.2.2",
     "browser-sync": "^2.11.1",
