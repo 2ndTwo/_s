@@ -3,7 +3,9 @@
  * Set all images returned by `wp_get_attachment_image` to lazy-load by default
  */
 function _s_lazy_load_images($attr) {
-	$attr['loading'] = 'lazy';
+	if ( $attr['loading'] !== 'eager' ) {
+		$attr['loading'] = 'lazy';
+	}
 	return $attr;
 }
 add_filter( 'wp_get_attachment_image_attributes', '_s_lazy_load_images');
