@@ -37,7 +37,7 @@
     "gulp-sort": "^2.0.0",
     "gulp-sourcemaps": "^2.6.2",
     "gulp-uglify": "^3.0.0",
-    "gulp-wp-pot": "^2.4.3",
+    "gulp-wp-pot": "^2.5.0",
     "postcss-combine-media-query": "^1.0.1",
     "stylelint": "^13.6.1",
     "stylelint-a11y": "^1.2.3",
