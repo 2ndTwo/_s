@@ -39,7 +39,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-wp-pot": "^2.4.3",
     "postcss-combine-media-query": "^1.0.1",
-    "stylelint": "^13.6.1",
+    "stylelint": "^13.8.0",
     "stylelint-a11y": "^1.2.3",
     "stylelint-config-wordpress": "^17.0.0",
     "stylelint-no-unsupported-browser-features": "^4.0.0",
