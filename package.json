@@ -39,7 +39,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.0",
     "gulp-wp-pot": "^2.4.3",
-    "postcss": "^8.3.6",
+    "postcss": "^8.2.13",
     "postcss-combine-media-query": "^1.0.1",
     "sass": "^1.38.1",
     "stylelint": "13.13.1",
