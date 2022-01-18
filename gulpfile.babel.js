@@ -35,7 +35,7 @@ const gulp = require( 'gulp' ); // Gulp of-course.
 const replace = require( 'gulp-replace' );
 
 // CSS related plugins.
-const sass = require( 'gulp-sass' ); // Gulp plugin for Sass compilation.
+const sass = require( 'gulp-sass' )( require( 'sass' ) ); // Gulp plugin for Sass compilation.
 const minifycss = require( 'gulp-csso' ); // Minifies CSS files.
 const postcss = require( 'gulp-postcss' ); // Autoprefixing magic.
 const autoprefixer = require( 'autoprefixer' ); // Autoprefixing magic.
@@ -47,7 +47,7 @@ const uglify = require( 'gulp-uglify' ); // Minifies JS files.
 const babel = require( 'gulp-babel' ); // Compiles ESNext to browser compatible JS.
 
 // Image related plugins.
-const imagemin = require( 'gulp-imagemin' ); // Minify PNG, JPEG, GIF and SVG images with imagemin.
+// const imagemin = require( 'gulp-imagemin' ); // Minify PNG, JPEG, GIF and SVG images with imagemin.
 
 // Utility related plugins.
 const rename = require( 'gulp-rename' ); // Renames files E.g. style.css -> style.min.css.
@@ -66,9 +66,10 @@ const beep = require( 'beepbeep' );
 /**
  * Custom Error Handler.
  *
- * @param Mixed err
+ * @param  Mixed err
+ * @param  r
  */
-const errorHandler = r => {
+const errorHandler = ( r ) => {
 	notify.onError( '\n\n❌  ===> ERROR: <%= error.message %>\n' )( r );
 	beep();
 
@@ -82,59 +83,85 @@ const errorHandler = r => {
  */
 gulp.task( 'initTheme', () => {
 	return gulp
-		.src([
+		.src( [
 			'./**/*',
 			'!node_modules/**/*',
-			'!./*.js'	// Exclude top-level JS files (which may be config files)
-		])
+			'!./*.js', // Exclude top-level JS files (which may be config files)
+		] )
 		.pipe( plumber( errorHandler ) )
-		.pipe( replace(
-			'\'_s\'',
-			'\'' + config.themeName.replace( /\s+/g, '-' ).toLowerCase() + '\'' ) )
-		.pipe( replace(
-			'_s_',
-			config.themeName.replace( /\s+/g, '_' ).toLowerCase() + '_' ) )
-		.pipe( replace(
-			'Text Domain: _s',
-			'Text Domain: ' + config.themeName.replace( /\s+/g, '-' ).toLowerCase() ) )
-		.pipe( replace(
-			' _s',
-			' ' + config.themeName.replace( /\s+/g, '_' ) ) )
-		.pipe( replace(
-			'_s-',
-			config.themeName.replace( /\s+/g, '-' ).toLowerCase() + '-' ) )
+		.pipe(
+			replace(
+				'\'_s\'',
+				"'" +
+					config.themeName.replace( /\s+/g, '-' ).toLowerCase() +
+					'\''
+			)
+		)
+		.pipe(
+			replace(
+				'_s_',
+				config.themeName.replace( /\s+/g, '_' ).toLowerCase() + '_'
+			)
+		)
+		.pipe(
+			replace(
+				'Text Domain: _s',
+				'Text Domain: ' +
+					config.themeName.replace( /\s+/g, '-' ).toLowerCase()
+			)
+		)
+		.pipe( replace( ' _s', ' ' + config.themeName.replace( /\s+/g, '_' ) ) )
+		.pipe(
+			replace(
+				'_s-',
+				config.themeName.replace( /\s+/g, '-' ).toLowerCase() + '-'
+			)
+		)
 		.pipe( gulp.dest( '.' ) )
-		.pipe( notify({ message: '\n\n✅  ===> THEME INITIALIZATION — completed!\n', onLast: true }) );
-});
+		.pipe(
+			notify( {
+				message: '\n\n✅  ===> THEME INITIALIZATION — completed!\n',
+				onLast: true,
+			} )
+		);
+} );
 
 /**
  * Task: `browser-sync`.
  *
  * Live Reloads, CSS injections, Localhost tunneling.
- * @link http://www.browsersync.io/docs/options/
  *
+ * @link http://www.browsersync.io/docs/options/
  * @param {Mixed} done Done.
  */
-const browsersync = done => {
-	browserSync.init({
+const browsersync = ( done ) => {
+	browserSync.init( {
 		proxy: config.projectURL,
 		open: config.browserAutoOpen,
 		injectChanges: config.injectChanges,
 		watchEvents: [ 'change', 'add', 'unlink', 'addDir', 'unlinkDir' ],
 		port: config.localPort,
 		ui: {
-			port: config.localPort + 1
+			port: config.localPort + 1,
 		},
-		serveStatic: [ {
-			route: '/wp-content/themes/' + config.themeDirName,
-			dir: '.'
-		} ]
-	});
+		serveStatic: [
+			{
+				route: '/wp-content/themes/' + config.themeDirName,
+				dir: '.',
+			},
+		],
+		rewriteRules: [
+			{
+				match: /(<body[^>]+class=")/g,
+				replace: '$1browser-sync ',
+			},
+		],
+	} );
 	done();
 };
 
 // Helper function to allow browser reload with Gulp 4.
-const reload = done => {
+const reload = ( done ) => {
 	browserSync.reload();
 	done();
 };
@@ -155,30 +182,36 @@ const reload = done => {
  */
 gulp.task( 'styles', () => {
 	return gulp
-		.src( config.styleSRC, { allowEmpty: true })
+		.src( config.styleSRC, { allowEmpty: true } )
 		.pipe( plumber( errorHandler ) )
 		.pipe( sourcemaps.init() )
 		.pipe(
-			sass({
+			sass.sync( {
 				errLogToConsole: config.errLogToConsole,
 				outputStyle: config.outputStyle,
-				precision: config.precision
-			})
+				precision: config.precision,
+			} )
 		)
 		.on( 'error', sass.logError )
-		.pipe( postcss([ autoprefixer(), require( 'postcss-combine-media-query' ) ]) )
+		.pipe(
+			postcss( [
+				autoprefixer(),
+				require( 'postcss-combine-media-query' ),
+			] )
+		)
 		.pipe( sourcemaps.write( './' ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
 		.pipe( browserSync.stream() ) // Reloads style.css if that is enqueued.
-		.pipe( rename({ suffix: '.min' }) )
+
+		.pipe( rename( { suffix: '.min' } ) )
 		.pipe( minifycss() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
 		.pipe( browserSync.stream() ); // Reloads style.min.css if that is enqueued.
-});
+} );
 
 /**
  * Task: `stylesRTL`.
@@ -197,33 +230,43 @@ gulp.task( 'styles', () => {
  */
 gulp.task( 'stylesRTL', () => {
 	return gulp
-		.src( config.styleSRC, { allowEmpty: true })
+		.src( config.styleSRC, { allowEmpty: true } )
 		.pipe( plumber( errorHandler ) )
 		.pipe( sourcemaps.init() )
 		.pipe(
-			sass({
+			sass().sync( {
 				errLogToConsole: config.errLogToConsole,
 				outputStyle: config.outputStyle,
-				precision: config.precision
-			})
+				precision: config.precision,
+			} )
 		)
 		.on( 'error', sass.logError )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-		.pipe( rename({ suffix: '-rtl' }) ) // Append "-rtl" to the filename.
+		.pipe( rename( { suffix: '-rtl' } ) ) // Append "-rtl" to the filename.
 		.pipe( rtlcss() ) // Convert to RTL.
-		.pipe( postcss([ autoprefixer(), require( 'postcss-combine-media-query' ) ]) )
+		.pipe(
+			postcss( [
+				autoprefixer(),
+				require( 'postcss-combine-media-query' ),
+			] )
+		)
 		.pipe( sourcemaps.write( './' ) ) // Output sourcemap for style-rtl.css.
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
 		.pipe( browserSync.stream() ) // Reloads style.css or style-rtl.css, if that is enqueued.
-		.pipe( rename({ suffix: '.min' }) )
+		.pipe( rename( { suffix: '.min' } ) )
 		.pipe( minifycss() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
 		.pipe( browserSync.stream() ) // Reloads style.css or style-rtl.css, if that is enqueued.
-		.pipe( notify({ message: '\n\n✅  ===> STYLES RTL — completed!\n', onLast: true }) );
-});
+		.pipe(
+			notify( {
+				message: '\n\n✅  ===> STYLES RTL — completed!\n',
+				onLast: true,
+			} )
+		);
+} );
 
 /**
  * Task: `vendorsJS`.
@@ -238,32 +281,37 @@ gulp.task( 'stylesRTL', () => {
  */
 gulp.task( 'vendorsJS', () => {
 	return gulp
-		.src( config.jsVendorSRC, { since: gulp.lastRun( 'vendorsJS' ) }) // Only run on changed files.
+		.src( config.jsVendorSRC, { since: gulp.lastRun( 'vendorsJS' ) } ) // Only run on changed files.
 		.pipe( plumber( errorHandler ) )
 		.pipe(
-			babel({
+			babel( {
 				presets: [
 					[
-						'@babel/preset-env' // Preset to compile your modern JS to ES5.
-					]
-				]
-			})
+						'@babel/preset-env', // Preset to compile your modern JS to ES5.
+					],
+				],
+			} )
 		)
 		.pipe( remember( config.jsVendorSRC ) ) // Bring all files back to stream.
 		.pipe( concat( config.jsVendorFile + '.js' ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.jsVendorDestination ) )
 		.pipe(
-			rename({
+			rename( {
 				basename: config.jsVendorFile,
-				suffix: '.min'
-			})
+				suffix: '.min',
+			} )
 		)
 		.pipe( uglify() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.jsVendorDestination ) )
-		.pipe( notify({ message: '\n\n✅  ===> VENDOR JS — completed!\n', onLast: true }) );
-});
+		.pipe(
+			notify( {
+				message: '\n\n✅  ===> VENDOR JS — completed!\n',
+				onLast: true,
+			} )
+		);
+} );
 
 /**
  * Task: `customJS`.
@@ -278,32 +326,37 @@ gulp.task( 'vendorsJS', () => {
  */
 gulp.task( 'customJS', () => {
 	return gulp
-		.src( config.jsCustomSRC, { since: gulp.lastRun( 'customJS' ) }) // Only run on changed files.
+		.src( config.jsCustomSRC, { since: gulp.lastRun( 'customJS' ) } ) // Only run on changed files.
 		.pipe( plumber( errorHandler ) )
 		.pipe(
-			babel({
+			babel( {
 				presets: [
 					[
-						'@babel/preset-env' // Preset to compile your modern JS to ES5.
-					]
-				]
-			})
+						'@babel/preset-env', // Preset to compile your modern JS to ES5.
+					],
+				],
+			} )
 		)
 		.pipe( remember( config.jsCustomSRC ) ) // Bring all files back to stream.
 		.pipe( concat( config.jsCustomFile + '.js' ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.jsCustomDestination ) )
 		.pipe(
-			rename({
+			rename( {
 				basename: config.jsCustomFile,
-				suffix: '.min'
-			})
+				suffix: '.min',
+			} )
 		)
 		.pipe( uglify() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.jsCustomDestination ) )
-		.pipe( notify({ message: '\n\n✅  ===> CUSTOM JS — completed!\n', onLast: true }) );
-});
+		.pipe(
+			notify( {
+				message: '\n\n✅  ===> CUSTOM JS — completed!\n',
+				onLast: true,
+			} )
+		);
+} );
 
 /**
  * Task: `images`.
@@ -319,8 +372,10 @@ gulp.task( 'customJS', () => {
  * again, do it with the command `gulp images`.
  *
  * Read the following to change these options.
+ *
  * @link https://github.com/sindresorhus/gulp-imagemin
  */
+/*
 gulp.task( 'images', () => {
 	return gulp
 		.src( config.imgSRC )
@@ -339,6 +394,7 @@ gulp.task( 'images', () => {
 		.pipe( gulp.dest( config.imgDST ) )
 		.pipe( notify({ message: '\n\n✅  ===> IMAGES — completed!\n', onLast: true }) );
 });
+ */
 
 /**
  * Task: `clear-images-cache`.
@@ -346,9 +402,11 @@ gulp.task( 'images', () => {
  * Deletes the images cache. By running the next "images" task,
  * each image will be regenerated.
  */
+/*
 gulp.task( 'clearCache', function( done ) {
 	return cache.clearAll( done );
 });
+ */
 
 /**
  * WP POT Translation File Generator.
@@ -364,17 +422,26 @@ gulp.task( 'translate', () => {
 		.src( config.watchPhp )
 		.pipe( sort() )
 		.pipe(
-			wpPot({
+			wpPot( {
 				domain: config.themeName.replace( ' ', '-' ).toLowerCase(),
 				package: config.packageName,
 				bugReport: config.bugReport,
 				lastTranslator: config.lastTranslator,
-				team: config.team
-			})
+				team: config.team,
+			} )
 		)
-		.pipe( gulp.dest( config.translationDestination + '/' + config.translationFile ) )
-		.pipe( notify({ message: '\n\n✅  ===> TRANSLATE — completed!\n', onLast: true }) );
-});
+		.pipe(
+			gulp.dest(
+				config.translationDestination + '/' + config.translationFile
+			)
+		)
+		.pipe(
+			notify( {
+				message: '\n\n✅  ===> TRANSLATE — completed!\n',
+				onLast: true,
+			} )
+		);
+} );
 
 /**
  * Watch Tasks.
@@ -383,11 +450,23 @@ gulp.task( 'translate', () => {
  */
 gulp.task(
 	'default',
-	gulp.parallel( 'styles', 'vendorsJS', 'customJS', 'images', browsersync, () => {
-		gulp.watch( config.watchPhp, reload ); // Reload on PHP file changes.
-		gulp.watch( config.watchStyles, gulp.parallel( 'styles' ) ); // Reload on SCSS file changes.
-		gulp.watch( config.watchJsVendor, gulp.series( 'vendorsJS', reload ) ); // Reload on vendorsJS file changes.
-		gulp.watch( config.watchJsCustom, gulp.series( 'customJS', reload ) ); // Reload on customJS file changes.
-		gulp.watch( config.imgSRC, gulp.series( 'images', reload ) ); // Reload on customJS file changes.
-	})
+	gulp.parallel(
+		'styles',
+		'vendorsJS',
+		'customJS',
+		/*'images',*/ browsersync,
+		() => {
+			gulp.watch( config.watchPhp, reload ); // Reload on PHP file changes.
+			gulp.watch( config.watchStyles, gulp.parallel( 'styles' ) ); // Reload on SCSS file changes.
+			gulp.watch(
+				config.watchJsVendor,
+				gulp.series( 'vendorsJS', reload )
+			); // Reload on vendorsJS file changes.
+			gulp.watch(
+				config.watchJsCustom,
+				gulp.series( 'customJS', reload )
+			); // Reload on customJS file changes.
+			// gulp.watch( config.imgSRC, gulp.series( 'images', reload ) ); // Reload on customJS file changes.
+		}
+	)
 );
